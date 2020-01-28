@@ -1,0 +1,282 @@
+Kubernetes Cheat Sheet / Kubernetes commands 
+
+Name  : Alagusundaram Nithyanandam
+Role  : Senior DevOps Engineer
+Study : Certified Kubernetes Administrator
+
+Command to get the list of pods from the default namespace :
+
+kubectl get pods
+
+Command to get all the Kubenetes services running in  the default namespace :
+
+kubectl get all
+
+Command to create a object using Yaml file : 
+
+kubectl create -f pod-definition.yml
+
+Command to inspect  a particular pod :
+
+kubectl describe pods myappplication
+
+Commend to Delete a POD:
+
+kubectl delete pods myreplicationcontroller-qhbg4
+
+Command to Delete a NameSpace/ Replicaset:
+
+kubectl delete namespaces kube-node-lease
+
+kubectl delete replicaset yoda-gallery-rs
+
+Command to get the list of replicaset in default namespace
+
+kubectl get replicaset
+
+Command to replace the changes from the replicateset/anyfiles:
+
+kubectl replace -f myreplicaset.yml
+
+Command to scale the replicas on the fly:
+
+kubectl scale --replicas=6 -f myreplicaset.yml. (This will NOT make the changes in the file)
+
+Command to Scale the replicas on the fly:
+
+kubectl scale --replicas=2 replicaset yoda-gallery-rs
+
+Command to create Name Space:
+
+kubectl create namespace production
+
+Command to get the pods from specific namespace:
+
+kubectl get pods --namespace=production
+
+Command to set the specific namespace as a defaults namespace:
+
+kubectl config set-context $(kubectl config current-context) --namespace=development
+
+Command to describe the Quota Number :
+
+kubectl describe quota
+
+Command to get the additional information:
+
+kubectl get pods -o wide
+
+Command to perform the Dry Run for.creating any service:
+
+kubectl create -f replica-set.yml --dry-run
+
+Command to create a single pod with the imperative command with dryrun in yaml format:
+
+
+kubectl run --generator=run-pod/v1 nginx --image=nginx --dry-run -o json
+
+Command to create a deployment in the command line:
+
+kubectl create deployment --image=nginx nginx --dry-run -o yaml
+
+Command to create a POD along with the labels:
+
+kubectl run --generator=run-pod/v1 redis --image=redis:alpine -l tier=db --dry-run -o yaml
+
+Command to Scale the replicas:
+
+kubectl scale deployment webapp --replicas=3
+
+Command to get the pods based on the selector:
+
+kubectl get pods --selector tier=backk-end
+
+Command to Label a Node:
+
+kubectl label nodes node01 app=yoda-gallery
+
+Command to check the metrics server are running:
+
+kubectl get apiservices
+
+Command to get all the resources from the specific namespace:
+
+kubectl get all --namespace=kube-public
+
+Command to the list of events in the current namespace:
+
+kubectl get events -o wide
+
+Command to check the status of the rollout for the deployment:
+
+kubectl rollout status deployment my-app-deployment
+
+Command to get the list of Configmaps:
+
+kubectl get configmaps
+
+Command to get the list of Secrets:
+
+kubectl get secrets
+
+Command to Remove a particular node from Scheduling:
+
+kubectl drain node01 --ignore-daemonsets
+
+Command to add back a node to the. Scheduling:
+
+kubectl uncordon node01
+
+Command to unschedule future pods but don’t remove the existing pods:
+
+kubectl cordon node01
+
+Command and format to upgrade the kubeadm:
+
+apt-get upgrade -y kubeadm=1.17.0-00
+
+Command to take the backup of the complete cluster:
+
+kubectl get all --all-namespaces -o yaml >> abc.yml
+
+Command to get all the services running from all the namespaces:
+
+kubectl get all --all-namespaces -o wide
+
+Command to check the details of the certificate in plain text:
+
+openssl x509 -in /etc/kubernetes/pki/apiserver.crt -text -noout
+
+Command to approve the CSR Request:
+
+kubectl certificate approve akshay
+
+Command to get the list of CSR:
+
+kubectl get csr
+
+Command to Reject the CSR Request:
+
+kubectl certificate deny agent-smith
+
+Command to view the Default Config:
+
+kubectl config view
+
+Command to set the context for the mentioned context:
+
+kubectl config --kubeconfig=/root/my-kube-config use-context research
+
+Command the get the list of roles from the specific key space:
+
+kubectl get roles --namespace kube-system
+
+Command to Inspect a particular role on a particular namespace
+
+kubectl describe role weave-net --namespace=kube-system
+
+Command to get the list of roles from all the namespace
+
+kubectl get roles --all-namespaces 
+
+Command to check the role based authorization for a particular resource
+
+kubectl auth can-i create pods blue-app --as dev-user
+
+Command to check the api resources and their groups and namespace
+
+kubectl api-resources
+
+Command to create Secrets
+
+kubectl create secret docker-registry private-reg-cred --docker-server=myprivateregistry.com:5000 --docker-username=dock_user --docker-password=dock_password --docker-email=dock_user@myprivateregistry.com
+
+Command to Check the User running for a POD :
+
+kubectl exec ubuntu-sleeper whoami
+
+Command to execute a command to the Pod based on the Capabilities which are added to Security Context
+
+
+kubectl exec -it ubuntu-sleeper -- date -s '19 APR 2012 11:14:00'
+
+Command to see which user the particular pod is running :
+
+kubectl exec ubuntu-sleeper whoami
+
+Command to get the list of network policy:
+
+kubectl get networkpolicy
+
+Command to check the logs inside a pod:
+
+kubectl exec webapp cat /log/app.log
+
+Command to display the MAC address/ Interface for the specific node:
+arp node02
+
+Command to Display the default route:
+
+ip route show default
+
+Command ti display the routing table:
+
+route
+
+Command to display the listening ports for all the process in the host:
+
+netstat -plnt
+
+Command to Display the number of connection established on a system/pod:
+
+netstat -anp | grep etcd
+
+Command to Display the IP address configured for the CNI Solution:
+
+ip addr show weave
+
+Command to install the plugin for the weave works 
+
+kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+
+Command to check the process running inside the pod
+
+kubectl exec coredns-78fcdf6894-8rhxq<replace with pod name> -n kube-system ps
+
+Command to check the nslookup inside a pod :
+
+kubectl exec hr nslookup mysql.payroll << /root/nslookup.out
+
+Command to create multiple object from multiple yams files in the folder
+
+kubectl create -f .
+
+Command to get the node names using the json path 
+
+kubectl get nodes -o=jsonpath='{.items[*].metadata.name}' >> /opt/outputs/node_names.txt
+
+Command to specify only two columns and sory by based on a specific field
+
+kubectl get pv --sort-by=.spec.capacity.storage -o=custom-columns=NAME:.metadata.name,CAPACITY:.spec.capacity.storage >> /opt/outputs/pv-and-capacity-sorted.txt
+
+Command to get the details about specific context and print details only related with that context:
+
+kubectl config view --kubeconfig=my-kube-config -o jsonpath="{.contexts[?(@.context.user=='aws-user')].name}" > /opt/outputs/aws-context-name
+
+Command to check the kubelet logs: 
+
+journalctl -u kubelet -f
+
+Command to create resources directly instead of yams files 
+
+kubectl create configmap nginx-configuration --namespace=ingress-space
+
+kubectl create serviceaccount  ingress-serviceaccount --namespace=ingress-space
+
+Command to take Snapshot of etcd :
+
+ETCDCTL_API=3 etcdctl snapshot save snapshot.db --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/server.crt --key=/etc/kubernetes/pki/etcd/server.key
+
+Command to restore Snapshot of etcd
+
+sudo ETCDCTL_API=3 etcdctl snapshot restore snapshot-pre-boot.db  --name master  --initial-cluster master=http://127.0.0.1:2380  --initial-cluster-token etcd-cluster-1  --initial-advertise-peer-urls=http://127.0.0.1:2380
