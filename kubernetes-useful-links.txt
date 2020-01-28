@@ -1,0 +1,59 @@
+Useful Links for Kubernetes
+
+Name  : Alagusundaram Nithyanandam
+Role  : Senior DevOps Engineer
+Study : Certified Kubernetes Administrator
+
+https://kubernetes.io/docs/reference/kubectl/conventions/
+
+https://v1-13.docs.kubernetes.io/docs/setup/independent/install-kubeadm/#check-required-ports
+
+
+Kubernetes References 
+
+Troubleshooting
+
+https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/
+
+Control Plane Failures 
+
+https://kubernetes.io/docs/tasks/debug-application-cluster/debug-cluster/
+
+Cheat Sheet 
+
+https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+
+
+https://kubernetes.io/docs/concepts/cluster-administration/networking/#how-to-implement-the-kubernetes-networking-model
+
+
+https://www.objectif-libre.com/en/blog/2018/07/05/k8s-network-solutions-comparison/
+
+https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/#encrypting-your-data
+
+https://kubernetes.io/docs/setup/release/#node-binaries
+
+https://kubernetes.io/docs/reference/access-authn-authz/bootstrap-tokens/
+
+https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet-tls-bootstrapping/#approval
+
+ https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#cni
+
+
+ https://v1-12.docs.kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole
+
+
+Certificates 
+
+https://kubernetes.io/docs/setup/best-practices/certificates/
+
+Command Line API 
+
+https://kubernetes.io/docs/tasks/administer-cluster/access-cluster-api/#python-client
+
+
+Persistent Volume :
+
+https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#persistentvolume-v1-core
+
+https://kubernetes.io/docs/concepts/storage/persistent-volumes/#claims-as-volumes
