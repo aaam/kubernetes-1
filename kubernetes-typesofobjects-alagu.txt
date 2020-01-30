@@ -1,0 +1,55 @@
+Type of Services/Objects in Kubernetes
+ 
+1.) Pod - This is a Kubernetes Object 
+
+2.) ReplicationController
+
+3.) ReplicaSet - Done
+
+4.) Deployment - Done
+
+5.) Namcepace - Namespace is an Kubernetes object 
+
+6.) ResourceQuota - is for limiting the total resource consumption of a namespace,
+
+7.) Service - Done
+
+8.) Binding,
+
+9.) DaemonSet  
+
+10.) ConfigMaps
+
+11.) Secret - This is Kubernetes object which is used to store the application credentials in an encoded format.
+
+12.) CertificateSigningRequest - This is an Kubernetes object to review /approve the Certificate Signing request for any user .  WE need to have a key and csr generated before creating the object . Once csr is created , we need to put the car in encode format in the yaml object for creating the certificate signing request.
+
+13.) Config
+
+14.) Role - Role is an Kubernetes object to create a role to allow access for any specific resources and methods for a specific role . Role are tied to a namespace
+
+15.) RoleBinding - Rolebinding is an Kubernetes object used to map the role created which has been created with the User . Rolebinding are specific to a namespace
+
+16.) ClusterRole - ClusterRole is an Kubernetes Object to create a role to allow access for any specific resources and restrict to particular methods . Eg User A to restrict to access only to Pods and only get pods . Cluster Roles are created for across the cluster and not specific to namespace - Nodes, CertificateSigningRequest are some of the examples which we can created using ClusterRole
+
+17.) ClusterRoleBinding - ClusterRoleBinding is an Kubernetes object to map the ClusterRole which has been created with the User . ClusterRoleBinding are specific to cluster and not specific to namespace
+
+18.) NetworkPolicy - Network Policy is an kubernetes object to set the ingress and egress traffic for the pods to allow traffic .  Eg . We have a client —> Front End —> Back End —> Database . By default any pod can communicate to any pod . However for the application mentioned . Front end pod should not communicate to database pod . Instead only backend pod should communicate to database pod . In order to achieve that we should create ingress/egress rule with the Network Policy for each pod
+
+19.) PersistentVolumeClaim - Done
+
+20.) PersistentVolume - Persistent Volume is 
+
+21.) Ingress
+
+22.) ServiceAccount 
+
+23.) EncryptionConfig
+
+24.) KubeletConfiguration
+
+25.) KubeProxyConfiguration
+
+26.) LimitRange - is for managing constraints at a pod and container level within the project
+
+27.) ClusterConfiguration
