@@ -1,8 +1,3 @@
 
 
-
-
-
-
-
-Kubernetes Cheet Sheet
+* [Kubernetes Cheat sheet](https://github.com/alaghusundhar/kubernetes.wiki.git)
